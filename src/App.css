@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Gilroy';
+  src: url("./assets/fonts/Gilroy-Regular.eot");
+  src: local("Gilroy Regular"), local("Gilroy-Regular"), url("./assets/fonts/Gilroy-Regular.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Gilroy-Regular.woff2") format("woff2"), url("./assets/fonts/Gilroy-Regular.woff") format("woff"), url("./assets/fonts/Gilroy-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'Gilroy';
+  src: url("./assets//fonts/Gilroy-Medium.eot");
+  src: local("Gilroy Medium"), local("Gilroy-Medium"), url("./assets/fonts/Gilroy-Medium.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Gilroy-Medium.woff2") format("woff2"), url("./assets/fonts/Gilroy-Medium.woff") format("woff"), url("./assets/fonts/Gilroy-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("./assets/fonts/Gilroy-Semibold.eot");
+  src: local("Gilroy Semibold"), local("Gilroy-Semibold"), url("./assets/fonts/Gilroy-Semibold.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Gilroy-Semibold.woff2") format("woff2"), url("./assets/fonts/Gilroy-Semibold.woff") format("woff"), url("./assets/fonts/Gilroy-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@font-face {
+  font-family: 'Gilroy';
+  src: url("./assets/fonts/Gilroy-Bold.eot");
+  src: local("Gilroy Bold"), local("Gilroy-Bold"), url("./assets/fonts/Gilroy-Bold.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Gilroy-Bold.woff2") format("woff2"), url("./assets/fonts/Gilroy-Bold.woff") format("woff"), url("./assets/fonts/Gilroy-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  font-family: "Gilroy";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #212121;
+}
+
+.wrapper {
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.headerBody {
+  min-height: 70px;
+  padding: 10px 0;
 }
