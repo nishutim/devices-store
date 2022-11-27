@@ -113,3 +113,114 @@ body {
   color: lightcoral;
   text-align: center;
 }
+
+.devices {
+  flex: 1 1 auto;
+  display: flex;
+  gap: 50px;
+}
+
+.devicesWarningMessage {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.devicesFilter {
+  flex: 0 0 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.devicesFilterItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.devicesFilterTitle {
+  font-size: 18px;
+}
+
+.brandBarBrand:hover {
+  cursor: pointer;
+}
+
+.devicesList {
+  flex: 1 1 auto;
+  align-self: flex-start;
+  margin: -20px -20px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.deviceListItem {
+  flex: 0 1 33.33%;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ibg {
+  position: relative;
+}
+
+.ibg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.deviceCard {
+  flex: 1 1 auto;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.deviceCard:hover {
+  cursor: pointer;
+}
+
+.deviceCardImage {
+  padding-top: calc(400 / 363 * 100%);
+  border-bottom: 1px solid lightgray;
+}
+
+.deviceCardImage img {
+  border-radius: 5px;
+}
+
+.deviceCardBody {
+  flex: 1 1 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.deviceCardBrand {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.deviceCardName {
+  margin-bottom: 15px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.deviceCardPrice {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
