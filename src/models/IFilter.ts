@@ -1,6 +1,9 @@
+import IBrand from './IBrand';
+import IType from './IType';
+
 interface IFilter {
-   brand: number | null
-   type: number | null
+   brand: IBrand | null
+   type: IType | null
 }
 
 export default IFilter;

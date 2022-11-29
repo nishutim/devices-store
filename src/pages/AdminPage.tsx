@@ -1,12 +1,12 @@
-import React from "react";
-import Page from "../components/Page";
+import React, { useState } from 'react';
+import Page from '../components/Page';
 
 const AdminPage = () => {
    return (
-      <Page>
-         Admin page
+      <Page className="adminPage">
+         Admin Page
       </Page>
    );
-}
+};
 
 export default AdminPage;

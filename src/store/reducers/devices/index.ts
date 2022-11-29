@@ -1,13 +1,13 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import { IBrand, IDevice, IFilter, IType } from "../../../models"
+import { IBrand, IDevice, IDeviceInfo, IFilter, IType } from "../../../models";
 
 interface InitialState {
    isLoading: boolean
    types: IType[] | null
    brands: IBrand[] | null
    devices: IDevice[] | null
-   deviceData: IDevice | null
+   deviceInfo: IDeviceInfo | null
    totalCount: number
    filter: IFilter
    error: string
@@ -18,7 +18,7 @@ const initialState = {
    types: null,
    brands: null,
    devices: null,
-   deviceData: null,
+   deviceInfo: null,
    totalCount: 0,
    filter: {
       brand: null,
@@ -56,11 +56,11 @@ const devicesSlice = createSlice({
       fetchAllDevicesFail: (state, action: PayloadAction<string>) => {
          state.error = action.payload
       },
-      fetchDeviceSuccess: (state, action: PayloadAction<IDevice>) => {
-         state.deviceData = action.payload
+      fetchDeviceInfoSuccess: (state, action: PayloadAction<IDeviceInfo>) => {
+         state.deviceInfo = action.payload
          state.error = ''
       },
-      fetchDeviceFail: (state, action: PayloadAction<string>) => {
+      fetchDeviceInfoFail: (state, action: PayloadAction<string>) => {
          state.error = action.payload
       },
       setFilter: (state, action: PayloadAction<IFilter>) => {

@@ -4,14 +4,13 @@ import { IBrand } from "../models";
 
 interface Props {
    brands: IBrand[]
-   selectedBrand: number | null
-   onBrandClick: (brand: number | null) => void
+   selectedBrand: IBrand | null
+   onBrandClick: (brand: IBrand | null) => void
 }
 
 const BrandBar: FC<Props> = React.memo(({ brands, selectedBrand, onBrandClick }) => {
-   const handleBrandClick = (brand: number | null) => {
+   const handleBrandClick = (brand: IBrand | null) => {
       onBrandClick(brand);
-      console.log(brand);
    }
 
    return (
@@ -27,8 +26,8 @@ const BrandBar: FC<Props> = React.memo(({ brands, selectedBrand, onBrandClick })
             <ListGroup.Item
                className="brandBarBrand"
                key={brand.id}
-               onClick={() => handleBrandClick(brand.id)}
-               active={brand.id === selectedBrand}
+               onClick={() => handleBrandClick(brand)}
+               active={brand.id === selectedBrand?.id}
             >
                {brand.name}
             </ListGroup.Item>

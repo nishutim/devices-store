@@ -8,9 +8,9 @@ interface Props {
 }
 
 const DeviceCard: FC<Props> = React.memo(({ device }) => {
-   const { name, price, brandId } = device;
+   const { name, price, img, brandId } = device;
 
-   const image = defaultDeviceImg;
+   const image = process.env.REACT_APP_API_URL + img || defaultDeviceImg;
    const brand = BrandNames[brandId];
 
    return (

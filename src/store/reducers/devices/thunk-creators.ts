@@ -1,7 +1,7 @@
-import { AppDispatch } from "../..";
-import { DevicesActions } from ".";
-import DevicesService from "../../../services/devicesService";
-import { IFilter } from "../../../models";
+import { AppDispatch } from '../..';
+import { DevicesActions } from '.';
+import DevicesService from '../../../services/devicesService';
+import { IFilter } from '../../../models';
 
 export const fetchTypes = () => async (dispatch: AppDispatch) => {
    try {
@@ -10,7 +10,7 @@ export const fetchTypes = () => async (dispatch: AppDispatch) => {
    } catch (e: any) {
       dispatch(DevicesActions.fetchTypesFail(e.message));
    }
-}
+};
 
 export const fetchBrands = () => async (dispatch: AppDispatch) => {
    try {
@@ -19,7 +19,7 @@ export const fetchBrands = () => async (dispatch: AppDispatch) => {
    } catch (e: any) {
       dispatch(DevicesActions.fetchBrandsFail(e.message));
    }
-}
+};
 
 export const fetchAllDevices = (filter: IFilter) => async (dispatch: AppDispatch) => {
    dispatch(DevicesActions.toggleIsLoading(true));
@@ -30,15 +30,39 @@ export const fetchAllDevices = (filter: IFilter) => async (dispatch: AppDispatch
       dispatch(DevicesActions.fetchAllDevicesFail(e.message));
    }
    dispatch(DevicesActions.toggleIsLoading(false));
-}
+};
 
-export const fetchDeviceData = (id: number) => async (dispatch: AppDispatch) => {
+export const fetchDeviceInfo = (id: number) => async (dispatch: AppDispatch) => {
    dispatch(DevicesActions.toggleIsLoading(true));
    try {
       const data = await DevicesService.fetchDevice(id);
-      dispatch(DevicesActions.fetchDeviceSuccess(data));
+      dispatch(DevicesActions.fetchDeviceInfoSuccess(data));
    } catch (e: any) {
-      dispatch(DevicesActions.fetchDeviceFail(e.message));
+      dispatch(DevicesActions.fetchDeviceInfoFail(e.message));
    }
    dispatch(DevicesActions.toggleIsLoading(false));
-}
+};
+
+export const createType = (type: string) => async (dispatch: AppDispatch) => {
+   try {
+      await DevicesService.createType(type);
+   } catch (e: any) {
+      alert(e.message);
+   }
+};
+
+export const createBrand = (brand: string) => async (dispatch: AppDispatch) => {
+   try {
+      await DevicesService.createBrand(brand);
+   } catch (e: any) {
+      alert(e.message);
+   }
+};
+
+export const createDevice = (device: FormData) => async (dispatch: AppDispatch) => {
+   try {
+      await DevicesService.createDevice(device);
+   } catch (e: any) {
+      alert(e.message);
+   }
+};

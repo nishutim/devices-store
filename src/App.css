@@ -53,6 +53,8 @@ body {
   font-size: 22px;
 }
 
+.globalErrorMessage {}
+
 .logo {
   font-size: 20px;
   font-weight: 600;
@@ -223,4 +225,61 @@ body {
   margin: 0;
   font-size: 18px;
   font-weight: 600;
+}
+
+.deviceInfoPreview {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.deviceInfoImage {
+  flex: 1 1 50%;
+  padding-top: 600px;
+}
+
+.deviceInfoActions {
+  flex: 1 1 50%;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.deviceInfoName {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.deviceInfoPrice {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.deviceInfoPrice span {
+  font-weight: 600;
+}
+
+.deviceInfoRating {
+  font-size: 20px;
+}
+
+.deviceInfoCharacteristics {}
+
+.deviceInfoCharacteristicsList {}
+
+.deviceInfoCharacteristicsListItem {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.deviceInfoCharacteristicsListItem:nth-child(2n - 1) {
+  background-color: lightgray;
+}
+
+.adminPage {}
+
+.adminPageBtn {
+  min-height: 40px;
+  min-width: 150px;
 }

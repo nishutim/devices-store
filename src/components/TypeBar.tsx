@@ -4,14 +4,13 @@ import { IType } from "../models";
 
 interface Props {
    types: IType[]
-   selectedType: number | null
-   onTypeClick: (type: number | null) => void
+   selectedType: IType | null
+   onTypeClick: (type: IType | null) => void
 }
 
 const TypeBar: FC<Props> = React.memo(({ types, selectedType, onTypeClick }) => {
-   const handleTypeClick = (type: number | null) => {
+   const handleTypeClick = (type: IType | null) => {
       onTypeClick(type);
-      console.log(type);
    }
 
    return (
@@ -27,8 +26,8 @@ const TypeBar: FC<Props> = React.memo(({ types, selectedType, onTypeClick }) => 
             <ListGroup.Item
                className="brandBarBrand"
                key={type.id}
-               onClick={() => handleTypeClick(type.id)}
-               active={type.id === selectedType}
+               onClick={() => handleTypeClick(type)}
+               active={type.id === selectedType?.id}
             >
                {type.name}
             </ListGroup.Item>

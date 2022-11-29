@@ -17,15 +17,15 @@ const DevicesFilter: FC<Props> = React.memo(({ brands, types, filter }) => {
 
    const dispatch = useAppDispatch();
 
-   const handleBrandClick = (brand: number | null) => {
-      if (brand !== filter.brand) {
+   const handleBrandClick = (brand: IBrand | null) => {
+      if (brand?.id !== filter?.brand?.id) {
          const newFilter = { ...filter, brand };
          dispatch(DevicesActions.setFilter(newFilter));
       }
    }
 
-   const handleTypeClick = (type: number | null) => {
-      if (type !== filter.type) {
+   const handleTypeClick = (type: IType | null) => {
+      if (type?.id !== filter?.type?.id) {
          const newFilter = { ...filter, type };
          dispatch(DevicesActions.setFilter(newFilter));
       }
