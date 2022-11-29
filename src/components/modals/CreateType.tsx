@@ -7,7 +7,7 @@ interface Props {
    onSubmit: (type: string) => Promise<void>
 }
 
-const CreateType: FC<Props> = ({ show, onHide, onSubmit }) => {
+const CreateType: FC<Props> = React.memo(({ show, onHide, onSubmit }) => {
    const [disableBtn, setDisableBtn] = useState(false);
    const [value, setValue] = useState('');
 
@@ -45,6 +45,6 @@ const CreateType: FC<Props> = ({ show, onHide, onSubmit }) => {
          </Modal.Footer>
       </Modal>
    );
-}
+});
 
 export default CreateType;

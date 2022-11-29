@@ -10,7 +10,7 @@ interface Props {
    onSubmit: (device: FormData) => Promise<void>
 }
 
-const CreateDevice: FC<Props> = ({ show, onHide, types, brands, onSubmit }) => {
+const CreateDevice: FC<Props> = React.memo(({ show, onHide, types, brands, onSubmit }) => {
    const [disableBtn, setDisableBtn] = useState(false);
    const [selectedType, setSelectedType] = useState<IType | null>(null);
    const [selectedBrand, setSelectedBrand] = useState<IType | null>(null);
@@ -163,6 +163,6 @@ const CreateDevice: FC<Props> = ({ show, onHide, types, brands, onSubmit }) => {
          </Modal.Footer>
       </Modal>
    );
-}
+});
 
 export default CreateDevice;

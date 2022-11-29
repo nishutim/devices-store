@@ -7,7 +7,7 @@ interface Props {
    onSubmit: (brand: string) => Promise<void>
 }
 
-const CreateBrand: FC<Props> = ({ show, onHide, onSubmit }) => {
+const CreateBrand: FC<Props> = React.memo(({ show, onHide, onSubmit }) => {
    const [disableBtn, setDisableBtn] = useState(false);
    const [value, setValue] = useState('');
 
@@ -45,6 +45,6 @@ const CreateBrand: FC<Props> = ({ show, onHide, onSubmit }) => {
          </Modal.Footer>
       </Modal>
    );
-}
+});
 
 export default CreateBrand;

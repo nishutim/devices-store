@@ -10,7 +10,7 @@ interface Props {
    devices: IDevice[] | null
 }
 
-const DevicesList: FC<Props> = ({ isLoading, devices }) => {
+const DevicesList: FC<Props> = React.memo(({ isLoading, devices }) => {
    const navigate = useNavigate();
 
    const handleItemClick = (id: number) => {
@@ -29,6 +29,6 @@ const DevicesList: FC<Props> = ({ isLoading, devices }) => {
          ))}
       </ul>
    );
-}
+});
 
 export default DevicesList;
