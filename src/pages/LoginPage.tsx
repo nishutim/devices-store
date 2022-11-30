@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useLocation } from "react-router-dom";
-import LoginForm from "../components/LoginForm";
-import Page from "../components/Page";
 import { useAppDispatch } from "../hooks/redux";
 import { login, registration } from "../store/reducers/auth/thunk-creators";
+import Page from "../components/Page";
+import LoginForm from "../components/LoginForm";
 
 const LoginPage = () => {
    const { pathname } = useLocation();
@@ -17,10 +17,10 @@ const LoginPage = () => {
 
    const dispatch = useAppDispatch();
 
-   const handleFormSubmit = async (email: string, password: string, setStatus: (status: string) => void) => {
+   const handleFormSubmit = useCallback(async (email: string, password: string, setStatus: (status: string) => void) => {
       const action = isLoginPage ? login : registration;
       await dispatch(action(email, password, setStatus));
-   }
+   }, [isLoginPage]);
 
    return (
       <Page className="justify-content-center align-items-center">

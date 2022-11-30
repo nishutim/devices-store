@@ -14,24 +14,6 @@ const DeviceInfoPage = () => {
    const deviceInfo = useAppSelector(devices_selectDeviceInfo);
    const error = useAppSelector(devices_selectError);
 
-   const info = [
-      {
-         title: 'RAM',
-         description: '16gb',
-         id: 1
-      },
-      {
-         title: 'Camera',
-         description: '48mp',
-         id: 2
-      },
-      {
-         title: 'Processor',
-         description: 'i3',
-         id: 3
-      }
-   ]
-
    const { id } = useParams();
    const dispatch = useAppDispatch();
 

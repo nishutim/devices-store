@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FC, useState } from 'react';
 import { Button, Dropdown, Form, Modal } from 'react-bootstrap';
 import { IBrand, IDeviceInfoItem, IType } from '../../models';
+import getTrimmedFirstLetterCapitalizedValue from '../../utils/getTrimmedFirstLetterCapitalizedValue';
 
 interface Props {
    show: boolean
@@ -65,13 +66,24 @@ const CreateDevice: FC<Props> = React.memo(({ show, onHide, types, brands, onSub
    const handleSubmit = async () => {
       setDisableBtn(true);
 
+      let validName = getTrimmedFirstLetterCapitalizedValue(name);
+      let validInfo = info.map(item => {
+         let validTitle = getTrimmedFirstLetterCapitalizedValue(item.title);
+         let validDescription = getTrimmedFirstLetterCapitalizedValue(item.description);
+         return {
+            ...item,
+            title: validTitle,
+            description: validDescription
+         }
+      });
+
       const formData = new FormData();
-      formData.append('name', name);
-      formData.append('price', price);
       formData.append('typeId', `${selectedType?.id}`);
       formData.append('brandId', `${selectedBrand?.id}`);
+      formData.append('name', validName);
+      formData.append('price', price);
       if (file) formData.append('img', file);
-      formData.append('info', JSON.stringify(info));
+      formData.append('info', JSON.stringify(validInfo));
 
       await onSubmit(formData);
 

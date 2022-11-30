@@ -1,5 +1,4 @@
-import { PayloadAction } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IBrand, IDevice, IDeviceInfo, IFilter, IType } from "../../../models";
 
 interface InitialState {

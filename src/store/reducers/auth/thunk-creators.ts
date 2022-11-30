@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
-import AuthService from '../../../services/authService';
 import { AppDispatch } from './../../index';
+import AuthService from '../../../services/authService';
 import { IUser } from '../../../models';
 import { AuthActions } from '.';
 

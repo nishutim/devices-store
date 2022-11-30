@@ -7,6 +7,8 @@ import RouteNames from "../router/RouteNames";
 import { logout } from "../store/reducers/auth/thunk-creators";
 
 const Header = () => {
+   const [disableBtn, setDisableBtn] = useState(false);
+
    const isAuth = useAppSelector(auth_selectIsAuth);
    const user = useAppSelector(auth_selectUser);
 
@@ -15,8 +17,6 @@ const Header = () => {
 
    const dispatch = useAppDispatch();
    const navigate = useNavigate();
-
-   const [disableBtn, setDisableBtn] = useState(false);
 
    const handleAdminPannelClick = () => {
       navigate(RouteNames.ADMIN);

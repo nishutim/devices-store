@@ -14,9 +14,9 @@ const BrandBar: FC<Props> = React.memo(({ brands, selectedBrand, onBrandClick })
    }
 
    return (
-      <ListGroup className="brandBar">
+      <ListGroup className="filterBar">
          <ListGroup.Item
-            className="brandBarBrand"
+            className="filterBarItem"
             onClick={() => handleBrandClick(null)}
             active={selectedBrand === null}
          >
@@ -24,7 +24,7 @@ const BrandBar: FC<Props> = React.memo(({ brands, selectedBrand, onBrandClick })
          </ListGroup.Item>
          {brands.map(brand => (
             <ListGroup.Item
-               className="brandBarBrand"
+               className="filterBarItem"
                key={brand.id}
                onClick={() => handleBrandClick(brand)}
                active={brand.id === selectedBrand?.id}

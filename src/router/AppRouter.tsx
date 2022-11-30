@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Preloader from "../components/Preloader";
 import { useAppSelector } from "../hooks/redux";
 import { auth_selectIsAuth } from "../store/reducers/auth/selectors";
-import RouteNames from "./RouteNames";
 import { privateRoutes, publicRoutes } from "./routes";
+import RouteNames from "./RouteNames";
+import Preloader from "../components/Preloader";
 
 const AppRouter = () => {
    const isAuth = useAppSelector(auth_selectIsAuth);

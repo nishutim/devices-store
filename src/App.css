@@ -147,7 +147,9 @@ body {
   font-size: 18px;
 }
 
-.brandBarBrand:hover {
+.filterBar {}
+
+.filterBarItem:hover {
   cursor: pointer;
 }
 

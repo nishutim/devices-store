@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { devices_selectBrands, devices_selectTypes } from '../store/reducers/devices/selectros';
@@ -14,39 +14,39 @@ const AdminPage = () => {
    const [showCreateBrand, setShowCreateBrand] = useState(false);
    const [showCreateDevice, setShowCreateDevice] = useState(false);
 
-   const dispatch = useAppDispatch();
-
    const types = useAppSelector(devices_selectTypes);
    const brands = useAppSelector(devices_selectBrands);
+
+   const dispatch = useAppDispatch();
 
    useEffect(() => {
       dispatch(fetchTypes());
       dispatch(fetchBrands());
    }, []);
 
-   const closeCreateType = () => {
+   const closeCreateType = useCallback(() => {
       setShowCreateType(false);
-   }
+   }, []);
 
-   const closeCreateBrand = () => {
+   const closeCreateBrand = useCallback(() => {
       setShowCreateBrand(false);
-   }
+   }, []);
 
-   const closeCreateDevice = () => {
+   const closeCreateDevice = useCallback(() => {
       setShowCreateDevice(false);
-   }
+   }, []);
 
-   const handleCreateType = async (type: string) => {
+   const handleCreateType = useCallback(async (type: string) => {
       await dispatch(createType(type));
-   }
+   }, []);
 
-   const handleCreateBrand = async (brand: string) => {
+   const handleCreateBrand = useCallback(async (brand: string) => {
       await dispatch(createBrand(brand));
-   }
+   }, []);
 
-   const handleCreateDevice = async (device: FormData) => {
+   const handleCreateDevice = useCallback(async (device: FormData) => {
       await dispatch(createDevice(device));
-   }
+   }, []);
 
    if (!types || !brands) return <Preloader />;
 

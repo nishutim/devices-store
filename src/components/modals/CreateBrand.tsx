@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FC, useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
+import getTrimmedFirstLetterCapitalizedValue from '../../utils/getTrimmedFirstLetterCapitalizedValue';
 
 interface Props {
    show: boolean
@@ -17,7 +18,8 @@ const CreateBrand: FC<Props> = React.memo(({ show, onHide, onSubmit }) => {
 
    const handleSubmit = async () => {
       setDisableBtn(true);
-      await onSubmit(value);
+      let validValue = getTrimmedFirstLetterCapitalizedValue(value);
+      await onSubmit(validValue);
       setValue('');
       setDisableBtn(false);
    }

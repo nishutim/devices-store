@@ -14,9 +14,9 @@ const TypeBar: FC<Props> = React.memo(({ types, selectedType, onTypeClick }) => 
    }
 
    return (
-      <ListGroup className="brandBar">
+      <ListGroup className="filterBar">
          <ListGroup.Item
-            className="brandBarBrand"
+            className="filterBarItem"
             onClick={() => handleTypeClick(null)}
             active={selectedType === null}
          >
@@ -24,7 +24,7 @@ const TypeBar: FC<Props> = React.memo(({ types, selectedType, onTypeClick }) => 
          </ListGroup.Item>
          {types.map(type => (
             <ListGroup.Item
-               className="brandBarBrand"
+               className="filterBarItem"
                key={type.id}
                onClick={() => handleTypeClick(type)}
                active={type.id === selectedType?.id}

@@ -19,9 +19,6 @@ const DevicesPage = () => {
 
    useEffect(() => {
       dispatch(fetchBrands());
-   }, []);
-
-   useEffect(() => {
       dispatch(fetchTypes());
    }, []);
 

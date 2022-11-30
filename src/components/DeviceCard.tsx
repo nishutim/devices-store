@@ -1,25 +1,22 @@
 import React, { FC } from "react";
-import defaultDeviceImg from "../assets/img/12pro.jpg";
 import { IDevice } from "../models";
-import BrandNames from "../utils/brandNames";
+import defaultDeviceImg from "../assets/img/12pro.jpg";
 
 interface Props {
    device: IDevice
 }
 
 const DeviceCard: FC<Props> = React.memo(({ device }) => {
-   const { name, price, img, brandId } = device;
+   const { name, price, img } = device;
 
    const image = process.env.REACT_APP_API_URL + img || defaultDeviceImg;
-   const brand = BrandNames[brandId];
 
    return (
       <div className="deviceCard">
          <div className="deviceCardImage ibg">
-            <img src={image} alt="image" />
+            <img src={image} alt="" />
          </div>
          <div className="deviceCardBody">
-            <p className="deviceCardBrand">{brand}</p>
             <p className="deviceCardName">{name}</p>
             <p className="deviceCardPrice">{price} $</p>
          </div>

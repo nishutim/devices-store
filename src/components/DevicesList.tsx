@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { IDevice } from "../models";
 import RouteNames from "../router/RouteNames";
-import DeviceCard from "./DeviceCard";
 import Preloader from "./Preloader";
+import DeviceCard from "./DeviceCard";
 
 interface Props {
    isLoading: boolean
