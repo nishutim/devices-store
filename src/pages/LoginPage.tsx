@@ -2,18 +2,14 @@ import React, { useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { useAppDispatch } from "../hooks/redux";
 import { login, registration } from "../store/reducers/auth/thunk-creators";
+import RouteNames from '../router/RouteNames';
 import Page from "../components/Page";
 import LoginForm from "../components/LoginForm";
 
 const LoginPage = () => {
    const { pathname } = useLocation();
 
-   const isLoginPage = pathname === '/login';
-   const titleText = isLoginPage ? 'Authorisation' : 'Registration';
-   const paraText = isLoginPage ? 'Still don\'t have an account?' : 'Already have an account?';
-   const linkText = isLoginPage ? 'Sign up' : 'Sign in';
-   const linkPath = isLoginPage ? '/registration' : '/login';
-   const btnText = isLoginPage ? 'Sign in' : 'Sign up';
+   const isLoginPage = pathname === RouteNames.LOGIN;
 
    const dispatch = useAppDispatch();
 
@@ -25,11 +21,7 @@ const LoginPage = () => {
    return (
       <Page className="justify-content-center align-items-center">
          <LoginForm
-            titleText={titleText}
-            paraText={paraText}
-            linkText={linkText}
-            linkPath={linkPath}
-            btnText={btnText}
+            isLoginPage={isLoginPage}
             onSubmit={handleFormSubmit} />
       </Page>
    );

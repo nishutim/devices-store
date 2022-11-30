@@ -3,19 +3,21 @@ import { NavLink } from "react-router-dom";
 import { Button, Form, Stack } from "react-bootstrap";
 
 interface Props {
-   titleText: string
-   btnText: string
-   paraText: string
-   linkText: string
-   linkPath: string
+   isLoginPage: boolean
    onSubmit: (email: string, password: string, setStatus: (status: string) => void) => Promise<void>
 }
 
-const LoginForm: FC<Props> = ({ titleText, btnText, paraText, linkText, linkPath, onSubmit }) => {
+const LoginForm: FC<Props> = ({ isLoginPage, onSubmit }) => {
    const [email, setEmail] = useState('');
    const [pass, setPass] = useState('');
    const [status, setStatus] = useState('');
    const [disableBtn, setDisableBtn] = useState(false);
+
+   const titleText = isLoginPage ? 'Authorisation' : 'Registration';
+   const paraText = isLoginPage ? 'Still don\'t have an account?' : 'Already have an account?';
+   const linkText = isLoginPage ? 'Sign up' : 'Sign in';
+   const linkPath = isLoginPage ? '/registration' : '/login';
+   const btnText = isLoginPage ? 'Sign in' : 'Sign up';
 
    const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
       setEmail(e.target.value);
